@@ -12,7 +12,10 @@ from openai import OpenAI
 import numpy as np
 import pandas as pd
 
-client = OpenAI(max_retries=5)
+client = OpenAI(
+    base_url = 'http://localhost:11434/v1',
+    api_key='ollama', # required, but unused
+)
 
 
 def get_embedding(text: str, model="text-embedding-3-small", **kwargs) -> List[float]:
